@@ -1,0 +1,28 @@
+{
+	"name": "__MSG_appName__",
+	"version": "0.0.2",
+	"manifest_version": 2,
+	"description": "__MSG_appDescription__",
+	"icons": {
+		"16": "images/ping-16.png",
+		"128": "images/ping-128.png"
+	},
+	"default_locale": "en",
+	"background": {
+		"scripts": [
+			"scripts/background.js"
+		]
+	},
+	"permissions": [
+		"webRequest",
+		"<all_urls>"
+	],
+	"page_action": {
+		"default_icon": {
+			"19": "images/ping-128.png",
+			"38": "images/ping-128.png"
+		},
+		"default_title": "pings",
+		"default_popup": "popup.html"
+	}
+}
