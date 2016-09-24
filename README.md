@@ -1,5 +1,5 @@
 # ping_pong
-a chrome extension to sonify network traffic, from Monthly Music Hackathon w/ @saranrapjs @sitebag
+A Chrome extension to sonify incoming and outgoing network requests. From Monthly Music Hackathon w/ @saranrapjs @sitebag
 
 To install:
 - Click the green "clone or download" button on this page. Unzip and find the "dist" folder
