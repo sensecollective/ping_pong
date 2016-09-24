@@ -8,6 +8,7 @@ let pongBuffer = null;
 let postPingBuffer = null;
 let postPongBuffer = null;
 let failBuffer = null;
+let threeBuffer = null;
 
 // create and chain audio nodes
 let leftPanner = context.createStereoPanner();
@@ -23,6 +24,7 @@ loadSound('audio/pop2.mp3', (buf) => { pongBuffer = buf });
 loadSound('audio/post1.mp3', (buf) => { postPingBuffer = buf });
 loadSound('audio/post2.mp3', (buf) => { postPongBuffer = buf });
 loadSound('audio/gnatattack_bombhit.mp3', (buf) => { failBuffer = buf });
+loadSound('audio/eraserloop.mp3', (buf) => { failBuffer = buf });
 
 
 chrome.runtime.onInstalled.addListener(details => {
@@ -46,6 +48,9 @@ chrome.webRequest.onHeadersReceived.addListener(details => {
 chrome.webRequest.onCompleted.addListener(details => {
   if (details.statusCode >= 400) {
     playSound(failBuffer, 1, context.destination);
+  }
+  else if (details.statusCode >= 300) {
+    playSound(threeBuffer, 1, context.destination);
   }
   else if (details.method === 'POST' && postPongBuffer)
     playSound(postPongBuffer, 1, rightPanner);
