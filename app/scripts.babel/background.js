@@ -27,6 +27,8 @@ chrome.webRequest.onBeforeSendHeaders.addListener(details => {
 },  {urls: ['<all_urls>']});
 
 chrome.webRequest.onCompleted.addListener(details => {
+	console.log(details);
+
   if (pongBuffer) playSound(pongBuffer, 1);
 	// console.log('response');
 }, {urls: ['<all_urls>']});
